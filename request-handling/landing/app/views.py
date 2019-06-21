@@ -1,6 +1,7 @@
 from collections import Counter
-from django.shortcuts import render_to_response
+
 from django.http import HttpResponse
+from django.shortcuts import render_to_response
 
 # Для отладки механизма ab-тестирования используйте эти счетчики
 # в качестве хранилища количества показов и количества переходов.
@@ -19,11 +20,10 @@ def index(request):
 
 def landing(request):
     index_name = request.GET.get('ab-test-arg')
+    counter_show[index_name] += 1
     if index_name == 'test':
-        counter_show[index_name] +=1
         return render_to_response('landing_alternate.html')
     elif index_name == 'original':
-        counter_show[index_name] += 1
         return render_to_response('landing.html')
     else:
         return HttpResponse('Ошибка перехода', status=400)
