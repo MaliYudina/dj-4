@@ -27,7 +27,8 @@ def file_list(request, date=None):
 
 
 def file_content(request, name):
-    if name in FILES_ARRAY:
+    file_path = os.path.join(settings.FILES_PATH, name)
+    if os.path.exists(file_path):
         with open(os.path.join(settings.FILES_PATH, name),
                   encoding='utf-8') as f:
             file_data = f.read()
