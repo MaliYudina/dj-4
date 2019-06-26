@@ -1,4 +1,5 @@
 from django.forms.widgets import TextInput
+# from bootstrap_datepicker_plus import DatePickerInput
 
 
 class AjaxInputWidget(TextInput):
