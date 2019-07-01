@@ -13,14 +13,13 @@
       function init() {
         var myMap = new ymaps.Map("map", {
           center: [{{ center.y }}, {{ center.x }}],
-          zoom: 13
+          zoom: 14
         }, {
           searchControlProvider: 'yandex#search'
         });
-
         {% for item in stations %}
           myMap.geoObjects
-            .add(new ymaps.Placemark([{{ item.latitude }}, {{ item.longitude }}], {
+            .add(new ymaps.Placemark([{{ item.latitude|stringformat:"f" }}, {{ item.longitude|stringformat:"f" }}], {
               balloonContent: '{{ item.route_numbers }}',
               iconCaption: '{{ item.name }}'
             }, {
@@ -50,4 +49,10 @@
         </div>
     </form>
     <div id="map"></div>
+    <script type="text/javascript">
+        var screenHeight = document.documentElement.clientHeight;
+        var map = document.getElementById('map');
+        document.body.style.overflow = "hidden";
+        map.style.height = screenHeight + 'px';
+    </script>
 {% endblock %}
