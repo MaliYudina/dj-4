@@ -16,7 +16,7 @@
 
         <div class="content">
             {%for phone in phones%}
-            <div>
+            <div style="padding-top: 30px">
                 <h3><a href="/catalog/{{phone.slug}}">{{phone.name}}</a></h3>
                 <h5> Стоимость: {{phone.price}} ₽</h5>
                 <h5> Дата релиза: {{phone.release_date|date:"d-M-Y"}} </h5>

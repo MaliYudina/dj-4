@@ -13,9 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, register_converter
+from books import views
+from books.converters import PubDateConverter
+
+register_converter(PubDateConverter, 'date_converter')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('books/', views.BookListView.as_view()),
+    path('books/<date_converter:date>/', views.BookListView.as_view()),
 ]
+
