@@ -13,9 +13,8 @@ def articles_list(request):
     # The negative sign in front of "-pub_date" indicates descending order.
     # Ascending order is implied. To order randomly, use "?"
     articles = Article.objects.order_by(ordering).prefetch_related(
-        Prefetch('scopes', queryset=ArticleScope.objects.select_related(
-            'topic').order_by(
-            '-is_main'))).order_by('topic')
+        Prefetch('scopes', queryset=ArticleScope.objects.order_by(
+            '-is_main').select_related('topic')))
 
     context['object_list'] = articles
 
