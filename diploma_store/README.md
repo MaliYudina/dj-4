@@ -16,6 +16,12 @@ pip install -r requirements.txt
 python3 manage.py migrate
 ```
 
+* Команда для создания пользователя без проверки пароля на сложность 
+```bash
+python3 manage.py createadmin
+```
+
+
 Загрузить тестовые данные:
 
 ```bash

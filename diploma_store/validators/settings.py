@@ -1,3 +1,4 @@
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -8,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'put your secret key here'
+SECRET_KEY = '(&&8casj0m)#1ig*ziwbj__#^+!%py$z%p!4vda(kq4&9tpftj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -25,13 +26,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'customers',
-    'products',
-    'articles',
-    'cart',
-    'ckeditor',
-    'validators',
-
 ]
 
 MIDDLEWARE = [
@@ -44,13 +38,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'main_logic.urls'
+ROOT_URLCONF = 'validators.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -58,14 +51,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media',
-                'context_processors.menu.menu_items',
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'main_logic.wsgi.application'
+WSGI_APPLICATION = 'validators.wsgi.application'
 
 
 # Database
@@ -86,11 +77,9 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -99,23 +88,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
     # {
-    #     'NAME': 'validators.validators.NumberValidator',
-    #     'OPTIONS': {
-    #         'min_digits': 3, }},
-    # {
-    #     'NAME': 'validators.validators.UppercaseValidator',
+    #     'NAME': os.path.join(BASE_DIR, 'management.commands.createadmin.superuser'),
     # },
-    # {
-    #     'NAME': 'validators.validators.LowercaseValidator',
-    # },
-    # {
-    #     'NAME': 'validators.validators.SymbolValidator',
-    # },
-
-
 ]
-
-
 
 
 # Internationalization
@@ -132,26 +107,8 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
+
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-
-
-# Media files
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-MEDIA_URL = '/media/'
-
-# local settings
-
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_CONFIG = {
-    'default': {
-        'toolbar': 'full',
-    }
-}
 
