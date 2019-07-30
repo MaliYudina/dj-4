@@ -41,10 +41,8 @@ def login_view(request):
 
 @login_required(login_url='login')
 def logout_view(request):
-    try:
+    if 'cart' in request.session:
         del request.session['cart']
-    except KeyError:
-        pass
 
     logout(request)
     return redirect('home')

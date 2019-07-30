@@ -13,11 +13,12 @@
 </head>
 <body data-gr-c-s-loaded="true">
     {% with request_path=request.path %}
-        {% if 'login' not in request_path and 'signup' not in request_path %}
-            {% include 'header.html' with menu=menu %}
-        {% endif %}
+     {% block header %}
+      {% include "header.html" %}
+     {% endblock %}
     {% endwith %}
-    {% block content %}{% endblock content %}
+
+    {% block content %} {% endblock content %}
     <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
