@@ -21,7 +21,8 @@
                 {% if section.categories.all|length_is:"1" %}
                     {% with section.categories.all|first as category %}
                         <li class="nav-item {% if section.slug in request.path %}active{% endif %}">
-                            <a class="nav-link" href="{% url 'products' section.slug category.slug %}">{{ section.name }}</a>
+                            <a class="nav-link" href="{% url 'products' section.slug category.slug %}">
+                                {{ section.name }}</a>
                         </li>
                     {% endwith %}
                 {% else %}
