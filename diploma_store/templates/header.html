@@ -15,6 +15,8 @@
             <li class="nav-item {% if request.path == '/' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'all_articles' %}">Статьи</a>
             </li>
+
+
             {% for section in menu %}
                 {% if section.categories.all|length_is:"1" %}
                     {% with section.categories.all|first as category %}
@@ -61,4 +63,7 @@
             </a>
         {% endif %}
     </div>
+
+
+
 </nav>

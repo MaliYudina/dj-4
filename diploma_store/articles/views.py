@@ -1,14 +1,10 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 from .models import Article
 
 
 def one_article(request, name=None):
     articles = Article.objects.filter(name=name)
     context = {'articles': articles}
-
-    # names_list = ['Канцелярия%20для%20школы:%20список%20покупок', '2b']
-    # if name not in names_list:
-    #      return render(request, 'error.html', context)
 
     return render(request, 'articles.html', context)
 
