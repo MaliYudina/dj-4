@@ -1,7 +1,7 @@
 
 from django.urls import path
 
-from .views import *
+from .views import create_or_update_cart_view, cart_view
 
 
 urlpatterns = [

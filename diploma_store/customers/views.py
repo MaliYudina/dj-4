@@ -3,8 +3,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
-import random
-
 from .models import Customer, Order, ProductsInOrder
 from products.models import Product
 from .forms import CustomerLoginForm, CustomerRegisterForm

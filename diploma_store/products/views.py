@@ -1,6 +1,6 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
-from .models import *
+from .models import Category, Product
 
 PRODUCTS_PER_PAGE = 3
 

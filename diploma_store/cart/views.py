@@ -22,22 +22,13 @@ def create_or_update_cart_view(request):
 
         cart = request.session.get('cart')
 
-        # cart[product_pk] = {
-        #     'total_price': '',
-        #
-        # }
-
         if product_pk in cart:
             cart[product_pk]['quantity'] += 1
-            # cart[product_pk]['total_price'] = 45
-            # cart[product_pk]['total_price'] = 155555
 
         else:
             cart[product_pk] = {
                 'quantity': 1,
             }
-
-
 
     request.session.modified = True
 
