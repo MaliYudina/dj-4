@@ -1,2 +1,2 @@
-Django==2.2
+Django==2.2.10
 tqdm==4.31.1
